@@ -17,22 +17,19 @@ module.exports = {
     // Use recommended rules for React
     "plugin:react/recommended",
 
-    // Use recommended rules for React Hooks
-    "plugin:react-hooks/recommended",
-
     // Turn off rules that might conflict with Prettier
     "prettier",
   ],
 
-  // Don't ignore config files
-  ignorePatterns: ["!.*"],
-
   overrides: [
-    // Use Node.js environment for CommonJS files
+    // Treat .cjs files as configuration
     {
-      files: ["**/*.cjs"],
+      files: ["*.cjs"],
       env: {
         node: true,
+      },
+      parserOptions: {
+        sourceType: "script",
       },
     },
   ],
@@ -51,13 +48,10 @@ module.exports = {
 
     // Use React plugin
     "react",
-
-    // Use React Hooks plugin
-    "react-hooks",
-
-    // Use React refresh plugin
-    "react-refresh",
   ],
+
+  // Ignore configuration files in directories above this one
+  root: true,
 
   rules: {
     // Allow empty destructuring patterns
