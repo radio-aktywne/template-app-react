@@ -1,4 +1,3 @@
----
 # Questions
 
 accountname:
@@ -28,6 +27,11 @@ envprefix:
   type: str
   help: The prefix for environment variables
   default: "{{ appname | upper | replace('-', '_') }}"
+
+port:
+  type: int
+  help: The port on which the app will listen
+  default: 5173
 
 docs:
   type: bool
